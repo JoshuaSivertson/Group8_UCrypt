@@ -46,8 +46,8 @@ jobs:
   steps:
   - task: Docker@2
     inputs:
-      containerRegistry: 'DocHubBack' 
-      repository: 'xxx/yyy.back'
+      containerRegistry: 'ucrypt_back_DR' 
+      repository: 'bshk/ucrypt_back'
       command: 'buildAndPush'
       Dockerfile: 'crypto-back/Dockerfile'
       tags: 'latest'
@@ -55,8 +55,8 @@ jobs:
 
   - task: Docker@2
     inputs:
-      containerRegistry: 'DocHubFront' 
-      repository: 'xxx/zzz.front'
+      containerRegistry: 'ucrypt_front_DR' 
+      repository: 'bshk/ucrypt_front'
       command: 'buildAndPush'
       Dockerfile: 'UCryptPortal/Dockerfile'
       tags: 'latest'
