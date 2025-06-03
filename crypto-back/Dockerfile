@@ -13,7 +13,7 @@ COPY src src
 RUN mvn package -DskipTests
 
 # Run stage
-FROM openjdk:17-jdk-alpine
+FROM maven:3.8.4-openjdk-17-slim
 
 WORKDIR /app
 

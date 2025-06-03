@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   sql-server:
-    image: mcr.microsoft.com/mssql/server
+    image: mcr.microsoft.com/mssql/server:2017-latest
     restart: always
     environment:
       SA_PASSWORD: a225034862650A
@@ -15,7 +15,7 @@ services:
       - uCryptNetwork
   
   db-init:
-    image: mcr.microsoft.com/mssql/server
+    image: mcr.microsoft.com/mssql/server:2017-latest
     network_mode: service:sql-server
     command: bash -c 'until /opt/mssql-tools/bin/sqlcmd -U sa -P a225034862650A -Q "CREATE DATABASE ucrypt"; do echo retry && sleep 1; done'
     depends_on:
