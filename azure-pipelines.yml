@@ -5,6 +5,8 @@ pr:
 - main
 
 pool:
+  name: Azure Pipelines
+  demands: maven
   vmImage: 'ubuntu-latest'
 
 jobs:
@@ -61,3 +63,31 @@ jobs:
       Dockerfile: 'UCryptPortal/Dockerfile'
       tags: 'latest'
     displayName: 'Build Frontend Docker Image'
+
+- job: SonarQubePreparationandBackendBuild
+  displayName: "SonarQube Preparation and Backend Build"
+  steps:
+  - task: SonarQubePrepare@5
+    inputs:
+      SonarQube: sonarQube
+      scannerMode: 'Other'
+      extraProperties: |
+        # Additional properties that will be passed to the scanner,
+        # Put one key=value per line, example:
+        # sonar.exclusions=**/*.bin
+        sonar.projectKey=SENG426_G08
+        sonar.projectName=SENG426_G08
+  - task: Maven@4
+    displayName: BackendBuild
+    inputs:
+      mavenPomFile: 'crypto-back/pom.xml'
+      goals: 'package -DskipTests'
+      publishJUnitResults: false
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.17'
+      jdkArchitectureOption: 'x64'
+      mavenOptions: '-Xmx3072m'
+      sonarQubeRunAnalysis: true
+  - task: SonarQubePublish@5
+    inputs:
+      pollingTimeoutSec: '300'
