@@ -18,6 +18,9 @@ public class AdminPanelPage extends PageBase {
     By btnEditRoleStaff = By.cssSelector("#staff tbody tr:nth-child(1) td:nth-child(6) button");
     By listStafRolesField = By.cssSelector("app-accounts .active .p-datatable-wrapper tbody tr:nth-child(1) td:nth-child(4) p-celleditor select");
     By saveEditIcon = By.cssSelector("app-accounts .active .p-datatable-wrapper tbody tr:nth-child(1) td:nth-child(6) button:nth-child(1)");
+    By regAccountsTab = By.cssSelector(("app-accounts ul #reg-tab"));
+    By btnEditRoleReg = By.cssSelector("#reg tbody tr:nth-child(1) td:nth-child(6) button");
+    By listRegRolesField = By.cssSelector("app-accounts .active .p-datatable-wrapper tbody tr:nth-child(1) td:nth-child(4) p-celleditor select");
 
     public void approveSignUpRequest() {
         click(approve);
@@ -28,6 +31,14 @@ public class AdminPanelPage extends PageBase {
         click(btnEditRoleStaff);
         click(roleNewAccount);
         select(listStafRolesField, newRole);
+        click(saveEditIcon);
+    }
+
+    public void editRegRole(String newRole) {
+        click(regAccountsTab);
+        click(btnEditRoleReg);
+        click(roleNewAccount);
+        select(listRegRolesField, newRole);
         click(saveEditIcon);
     }
 
