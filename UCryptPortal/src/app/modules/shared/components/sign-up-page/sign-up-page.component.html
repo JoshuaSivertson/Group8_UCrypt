@@ -52,6 +52,10 @@
             <div class="invalid-feedback" *ngIf="signUpForm.get('password')?.errors?.maxlength">
               Password cannot exceed 24 characters!
             </div>
+
+            <div class="invalid-feedback" *ngIf="signUpForm.get('password')?.errors?.pattern">
+                Password must contain at least one upper case, lower case, number, and special character!
+            </div>
       </div>
       <!-- Confirm Password -->
       <div class="mb-3">
