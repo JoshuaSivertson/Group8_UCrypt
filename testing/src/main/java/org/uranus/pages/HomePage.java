@@ -25,6 +25,7 @@ public class HomePage extends PageBase {
    By adminPanelModule=By.cssSelector("div #collapsibleNavId ul li:nth-child(8) a");
    public By accountPanelDropdown=By.cssSelector("div #collapsibleNavId div ul li a");
    public By logoutButton=By.cssSelector("div #collapsibleNavId div ul li div a:nth-child(2)");
+   public By invalidFeedback=By.cssSelector(".invalid-feedback");
 
 
 

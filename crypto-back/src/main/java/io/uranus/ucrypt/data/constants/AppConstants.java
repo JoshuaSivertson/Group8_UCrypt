@@ -10,4 +10,6 @@ public class AppConstants {
     public static final int MAX_FILE_NAME_LENGTH = 255;
     public static final String EMAIL_REGEX = ".+@.+\\..+";
     public static final String EMAIL_REGEX_NOT_VALID_ERROR_MESSAGE = "Email is not valid";
+    public static final String PASSWORD_REGEX = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,24}$";
+    public static final String PASSWORD_REGEX_NOT_VALID_ERROR_MESSAGE = "Password is not valid";
 }
