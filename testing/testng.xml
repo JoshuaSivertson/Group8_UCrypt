@@ -5,6 +5,7 @@
         <classes>
             <class name="tests.SignUpTest"></class>
             <class name="tests.AdminPanelTest"></class>
+            <class name="tests.NegativeAdminPanelTest"></class>
         </classes>
     </test><!-- Test -->
 </suite><!-- Test -->
