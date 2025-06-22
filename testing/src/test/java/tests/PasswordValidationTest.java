@@ -35,6 +35,7 @@ public class PasswordValidationTest extends TestBase {
         homePage.signUp(name, email, passwordMissingUpper, passwordMissingUpper, role);
         assertIsEqual(homePage.invalidFeedback, "Password must contain at least one upper case, lower case, number, and special character!"); // assertion command about the showing success message of sign up
         softAssert.assertAll();
+        homePage.click(homePage.signUpCloseBtn);
     }
 
     @Test(priority = 2)
@@ -43,6 +44,7 @@ public class PasswordValidationTest extends TestBase {
         homePage.signUp(name, email, passwordMissingLower, passwordMissingLower, role);
         assertIsEqual(homePage.invalidFeedback, "Password must contain at least one upper case, lower case, number, and special character!"); // assertion command about the showing success message of sign up
         softAssert.assertAll();
+        homePage.click(homePage.signUpCloseBtn);
     }
 
     @Test(priority = 3)
@@ -51,6 +53,7 @@ public class PasswordValidationTest extends TestBase {
         homePage.signUp(name, email, passwordMissingNumber, passwordMissingNumber, role);
         assertIsEqual(homePage.invalidFeedback, "Password must contain at least one upper case, lower case, number, and special character!"); // assertion command about the showing success message of sign up
         softAssert.assertAll();
+        homePage.click(homePage.signUpCloseBtn);
     }
 
     @Test(priority = 4)
@@ -59,6 +62,7 @@ public class PasswordValidationTest extends TestBase {
         homePage.signUp(name, email, passwordMissingSpecial, passwordMissingSpecial, role);
         assertIsEqual(homePage.invalidFeedback, "Password must contain at least one upper case, lower case, number, and special character!"); // assertion command about the showing success message of sign up
         softAssert.assertAll();
+        homePage.click(homePage.signUpCloseBtn);
     }
 
 }

@@ -17,6 +17,7 @@ public class HomePage extends PageBase {
     By confirmPassField = By.id("signUpConfirmPassword");
     By roleField = By.id("signUpRole");
     By signUpSubmitBtn = By.cssSelector("app-sign-up-page form .btn-submit");
+    public By signUpCloseBtn = By.cssSelector("app-sign-up-page .btn-close");
    public By toastMsg=By.cssSelector(".p-toast-detail");
    public By closeToastMsg=By.cssSelector(".p-toast-icon-close");
    By emailLoginField=By.cssSelector("app-header #signUp app-login-page .auth-form #loginEmail");
