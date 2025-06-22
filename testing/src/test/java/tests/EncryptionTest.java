@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -193,8 +194,9 @@ public class EncryptionTest extends TestBase {
         homePage.click(encryptButton);
 
         // Upload the file
-        String filePath = "C:\\Users\\brady\\Documents\\textToEncrypt.txt"; // Change to a valid file path on your system
         String fileName = "textToEncrypt.txt"; // Extracted from filePath or set directly
+        String filePath = System.getProperty("user.home") + "/Documents/" + fileName; // Change to a valid file path MAC
+        //String filePath = System.getProperty("user.home") + "\\Documents\\" + fileName; // Change to a valid file path WINDOWS
         webDriver.findElement(fileEncryptInput).sendKeys(filePath);
 
         // Select encryption type (specific to file encryption page)
@@ -205,6 +207,7 @@ public class EncryptionTest extends TestBase {
         homePage.click(fileEncryptAutoGenerateButton);
 
         // Save the generated encryption key
+        webDriverWait = new org.openqa.selenium.support.ui.WebDriverWait(webDriver, java.time.Duration.ofSeconds(20));
         webDriverWait.until(org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated(fileEncryptionKeyTextarea));
         lastFileEncryptionKey = webDriver.findElement(fileEncryptionKeyTextarea).getAttribute("value");
 
@@ -220,12 +223,13 @@ public class EncryptionTest extends TestBase {
         softAssert.assertTrue(finishedStatusPresent, "File encryption should show 'Finished' status");
 
         // Save the path to the encrypted file in Downloads
-        String downloadsPath = System.getProperty("user.home") + "\\Downloads\\" + fileName;
+        String downloadsPath = System.getProperty("user.home") + "/Downloads/" + fileName; // Change to a valid file path MAC
+        //String downloadsPath = System.getProperty("user.home") + "\\Downloads\\" + fileName; // Change to a valid file path WINDOWS
         lastEncryptedFilePath = downloadsPath;
         java.io.File downloadedFile = new java.io.File(downloadsPath);
 
         // Wait up to 20 seconds for the file to appear
-        int waitSeconds = 20;
+        int waitSeconds = 5;
         int waited = 0;
         while (!downloadedFile.exists() && waited < waitSeconds) {
             try {
