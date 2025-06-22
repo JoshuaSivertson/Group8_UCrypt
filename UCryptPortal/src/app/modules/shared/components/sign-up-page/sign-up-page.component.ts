@@ -42,7 +42,7 @@ export class SignUpPageComponent implements OnInit{
   private createSignUpForm() {
     this.signUpForm = new FormGroup({
       name: new FormControl(null, [Validators.required]),
-      password: new FormControl<string>('', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]),
+      password: new FormControl<string>('', [Validators.required, Validators.minLength(6), Validators.maxLength(24), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,24}$")]),
       confirmPassword: new FormControl<string>('', [Validators.required]),
       email: new FormControl<string>('', [Validators.required, Validators.email]),
       role: new FormControl<Role | null>(null, [Validators.required])

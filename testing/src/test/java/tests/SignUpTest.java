@@ -12,7 +12,7 @@ public class SignUpTest extends TestBase {
 
     String name = faker.name().fullName();
     String email = faker.internet().emailAddress();
-    String password = faker.number().digits(6);
+    String password = "Passw0rd!";
     String role = "EMPLOYEE";
 
 

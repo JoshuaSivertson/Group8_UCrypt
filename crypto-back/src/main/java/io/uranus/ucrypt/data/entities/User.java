@@ -13,6 +13,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
@@ -34,6 +35,7 @@ public class User extends AuditedEntity {
     private String email;
 
     @NotBlank
+    @Pattern(regexp = AppConstants.PASSWORD_REGEX, message = AppConstants.PASSWORD_REGEX_NOT_VALID_ERROR_MESSAGE)
     @Column(nullable = false)
     private String password;
 

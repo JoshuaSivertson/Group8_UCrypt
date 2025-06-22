@@ -67,7 +67,7 @@ export class StaffAccountComponent implements OnInit{
 onRowEditSave(account: any, index: number) {
     if ((this.clonedAccount .role as string).toLowerCase() !== (account.role as string).toLowerCase()) {
       let obj={
-          newRole: account.role
+          newRole: (account.role as string).toUpperCase()
       }
 
       this.spinnerService.show();
@@ -78,7 +78,7 @@ onRowEditSave(account: any, index: number) {
         // delete this.clonedAccount[account.id];
         this.dataBackups[index] = this.clonedAccount;
 
-        this.messageService.add({severity:'success', detail: 'user role updated successfully!'});
+        this.messageService.add({severity:'success', detail: 'Role is Edited Successfully'});
       },
       error: (error) => {
         this.spinnerService.hide();
