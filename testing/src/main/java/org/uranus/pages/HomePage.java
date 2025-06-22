@@ -23,6 +23,7 @@ public class HomePage extends PageBase {
    By passwordLoginField=By.cssSelector("app-header #signUp app-login-page .auth-form #loginPassword");
    By loginSubmitBtn=By.cssSelector("app-header #signUp app-login-page .auth-form button");
    By adminPanelModule=By.cssSelector("div #collapsibleNavId ul li:nth-child(8) a");
+   public By invalidFeedback=By.cssSelector(".invalid-feedback");
 
 
 
